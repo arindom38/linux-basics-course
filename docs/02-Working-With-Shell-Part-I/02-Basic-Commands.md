@@ -149,6 +149,7 @@ To see the content of a file and navigate throught the file. Run **`less /path/t
 ```
 $ less new_file.txt
 ```
+![pagers](../../images/pagers.PNG)
 
 To get the long list of files and directories. Run **`ls -l`** command
 ```
