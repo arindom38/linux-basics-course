@@ -26,6 +26,19 @@ In this section, we will take a look at the core concepts of a linux operating s
 1. Device Drivers
 1. System calls and Security
 
+Linux kernel is _**monolithic**_ and **_modular_**.
+
+- **Monolithic:** all this major task is handled by kernel itself
+- **Modular:** The Linux kernel being modular means it’s designed in a way that allows different parts, or modules, of the kernel to be loaded or unloaded dynamically, depending on what the system needs. It specifies following properties -
+
+  1. **Dynamic Loading and Unloading:** Modules, such as drivers for different hardware (e.g., network cards, file systems), can be added or removed from the kernel at runtime using commands like `modprobe, insmod, and rmmod`. This avoids the need to recompile or reboot the kernel for every change or new functionality.
+
+  2. **Reduced Memory Usage:** Only the necessary modules are loaded into memory, conserving resources. 
+
+  3. **Easier Customization and Maintenance:** You can compile only the core kernel and add features as needed, which simplifies maintenance and updates. For example, if a new piece of hardware requires a different driver, you can add its module without modifying the whole kernel.
+
+  4. **Enhanced Stability:** If a module crashes, it can be unloaded and reloaded without affecting the entire system, which contributes to better system stability.
+
 ## Linux Kernel Versions
 
 #### let us know identify the ways to identify linux kernel versions
@@ -57,13 +70,17 @@ Memory is divded into two areas.
    1. Python
    1. Ruby e.t.c
    1. Docker Containers
-   
+
+Kernel space can be compared with designated space for librarian who has access to books and other materials.
+whereas the user space can be compared with the space where the students can read books and reference other materials. User space in memory contain all the external application and some pre-packaged utilities applications like graphical tools or another programming language. 
+
 ![memory-management](../../images/memory-management.PNG)
 
 #### Let us know see how programs running in the `User Space` work
 
 All user programs function by manipulating data that is stored in memory and on disk. User programs get access to data by making special request to the kernel called **`System Calls`**
-- Examples include, allocating memory by using variables or opening a file.
+- Examples include, allocating memory by using variables or opening a file. If we compare this with analogy like student(user-space) is requesting for books (hardware) to librarian(kernel space). librarian decide to accept the request or not.
+
 
   ![user-space](../../images/user-space.PNG)
 
